@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Property } from '@/types/property';
+import { Property } from '../../types/property';
 import './PropertyCard.css';
 
 interface PropertyCardProps {

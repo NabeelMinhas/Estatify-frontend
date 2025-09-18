@@ -1,4 +1,4 @@
-import { useFilterStore } from '@/store/filterStore';
+import { useFilterStore } from '../../store/filterStore';
 import './Filters.css';
 
 const Filters: React.FC = () => {

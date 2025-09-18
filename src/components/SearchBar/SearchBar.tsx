@@ -1,4 +1,4 @@
-import { useFilterStore } from '@/store/filterStore';
+import { useFilterStore } from '../../store/filterStore';
 import './SearchBar.css';
 
 const SearchBar: React.FC = () => {

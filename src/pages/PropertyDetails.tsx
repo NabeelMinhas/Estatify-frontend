@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { usePropertyStore } from '@/store/propertyStore';
-import Layout from '@/components/Layout/Layout';
-import EmptyState from '@/components/EmptyState';
+import { usePropertyStore } from '../store/propertyStore';
+import Layout from '../components/Layout/Layout';
+import EmptyState from '../components/EmptyState';
 import './PropertyDetails.css';
 
 const PropertyDetails: React.FC = () => {

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { usePropertyStore } from '@/store/propertyStore';
-import { useFilterStore } from '@/store/filterStore';
-import Layout from '@/components/Layout/Layout';
-import PropertyCard from '@/components/PropertyCard';
-import SearchBar from '@/components/SearchBar';
-import Filters from '@/components/Filters';
-import EmptyState from '@/components/EmptyState';
+import { usePropertyStore } from '../store/propertyStore';
+import { useFilterStore } from '../store/filterStore';
+import Layout from '../components/Layout/Layout';
+import PropertyCard from '../components/PropertyCard';
+import SearchBar from '../components/SearchBar';
+import Filters from '../components/Filters';
+import EmptyState from '../components/EmptyState';
 import './PropertyList.css';
 
 const PropertyList: React.FC = () => {
