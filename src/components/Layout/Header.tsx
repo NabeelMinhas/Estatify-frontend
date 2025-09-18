@@ -1,7 +1,6 @@
-import React from 'react';
 
 interface HeaderProps {
-  title?: string;
+  title?: string | undefined;
 }
 
 const Header: React.FC<HeaderProps> = ({ title = 'Real Estate Dashboard' }) => {

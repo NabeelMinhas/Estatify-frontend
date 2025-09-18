@@ -19,7 +19,7 @@ interface PropertyStore {
 
 export const usePropertyStore = create<PropertyStore>()(
   devtools(
-    (set, get) => ({
+    (set) => ({
       // Initial State
       properties: [],
       selectedProperty: null,
