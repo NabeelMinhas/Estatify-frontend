@@ -8,10 +8,11 @@ import PropertyCard from '../components/PropertyCard';
 import Filters from '../components/Filters';
 import EmptyState from '../components/EmptyState';
 import PropertyDetailsModal from '../components/PropertyDetailsModal';
+import MapView from '../components/MapView';
 import './PropertyList.css';
 
 const PropertyList: React.FC = () => {
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [viewMode, setViewMode] = useState<'grid' | 'list' | 'map'>('grid');
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
@@ -249,6 +250,16 @@ const PropertyList: React.FC = () => {
                   </svg>
                   List
                 </button>
+                <button 
+                  className={`property-list__view-btn ${viewMode === 'map' ? 'property-list__view-btn--active' : ''}`}
+                  onClick={() => setViewMode('map')}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  Map
+                </button>
               </div>
             </div>
 
@@ -264,7 +275,7 @@ const PropertyList: React.FC = () => {
                     />
                   ))}
                 </div>
-              ) : (
+              ) : viewMode === 'list' ? (
                 <div className="property-list__list">
                   {filteredProperties.map((property) => (
                     <PropertyListItem 
@@ -273,6 +284,11 @@ const PropertyList: React.FC = () => {
                     />
                   ))}
                 </div>
+              ) : (
+                <MapView 
+                  properties={filteredProperties}
+                  onPropertyClick={handlePropertyClick}
+                />
               )
             ) : (
               <EmptyState 

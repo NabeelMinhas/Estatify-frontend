@@ -1,0 +1,246 @@
+/* Map View Component */
+.map-view {
+  background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.map-view__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-view__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+.map-view__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.map-view__count {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.map-view__container {
+  height: 400px;
+  position: relative;
+}
+
+.map-view__map {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Map Popup Styles */
+.map-popup .leaflet-popup-content-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.map-popup .leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+  width: 250px !important;
+}
+
+.map-popup .leaflet-popup-tip {
+  background: white;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  border-top: none;
+  border-right: none;
+}
+
+.map-popup__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-popup__image {
+  height: 120px;
+  overflow: hidden;
+}
+
+.map-popup__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.map-popup__image:hover img {
+  transform: scale(1.05);
+}
+
+.map-popup__info {
+  padding: 16px;
+}
+
+.map-popup__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.map-popup__price {
+  font-size: 1.125rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+}
+
+.map-popup__location {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.map-popup__details {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.map-popup__button {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.map-popup__button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Empty State */
+.map-view__empty {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  gap: 16px;
+}
+
+.map-view__empty svg {
+  opacity: 0.5;
+}
+
+.map-view__empty p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .map-view__header {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .map-view__title {
+    font-size: 1rem;
+    justify-content: center;
+  }
+  
+  .map-view__count {
+    text-align: center;
+  }
+  
+  .map-view__container {
+    height: 300px;
+  }
+  
+  .map-popup .leaflet-popup-content {
+    width: 220px !important;
+  }
+  
+  .map-popup__info {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-view__container {
+    height: 250px;
+  }
+  
+  .map-popup .leaflet-popup-content {
+    width: 200px !important;
+  }
+  
+  .map-popup__image {
+    height: 100px;
+  }
+  
+  .map-popup__info {
+    padding: 10px;
+  }
+  
+  .map-popup__title {
+    font-size: 0.9rem;
+  }
+  
+  .map-popup__price {
+    font-size: 1rem;
+  }
+}
+
+/* Animation for shimmer effect */
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

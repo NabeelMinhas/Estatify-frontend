@@ -1,6 +1,7 @@
 import React from 'react';
 import { Property } from '../../types/property';
 import { X } from 'lucide-react';
+import PriceChart from '../PriceChart';
 import './PropertyDetailsModal.css';
 
 interface PropertyDetailsModalProps {
@@ -110,6 +111,9 @@ const PropertyDetailsModal: React.FC<PropertyDetailsModalProps> = ({ property, i
             <div className="modal-property-type">
               <span className="modal-type-badge">{property.propertyType}</span>
             </div>
+
+            {/* Price Chart */}
+            <PriceChart currentPrice={property.price} propertyTitle={property.title} />
 
             {/* Description */}
             <div className="modal-property-description">

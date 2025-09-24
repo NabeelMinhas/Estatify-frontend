@@ -1,0 +1,110 @@
+/* Price Chart Component */
+.price-chart {
+  background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  margin-bottom: 24px;
+}
+
+.price-chart__header {
+  margin-bottom: 20px;
+}
+
+.price-chart__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.price-chart__current-price {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.price-chart__current-price span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-left: 8px;
+}
+
+.price-chart__change {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.price-chart__change--positive {
+  color: #059669;
+  background: rgba(5, 150, 105, 0.1);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.price-chart__change--negative {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.price-chart__change svg {
+  flex-shrink: 0;
+}
+
+.price-chart__container {
+  height: 280px;
+  position: relative;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .price-chart {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .price-chart__stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .price-chart__container {
+    height: 240px;
+    padding: 12px;
+  }
+  
+  .price-chart__current-price {
+    font-size: 0.9rem;
+  }
+  
+  .price-chart__current-price span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .price-chart {
+    padding: 16px;
+  }
+  
+  .price-chart__container {
+    height: 200px;
+    padding: 8px;
+  }
+}
