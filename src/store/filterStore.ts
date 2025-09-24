@@ -56,11 +56,15 @@ export const useFilterStore = create<FilterStore>()(
         // Filter by search query (case-insensitive title search)
         if (searchQuery.trim()) {
           const query = searchQuery.toLowerCase().trim();
-          filtered = filtered.filter(property =>
-            property.title.toLowerCase().includes(query) ||
-            property.location.address.toLowerCase().includes(query) ||
-            property.location.city.toLowerCase().includes(query)
-          );
+          filtered = filtered.filter(property => {
+            const title = property.title?.toLowerCase() || '';
+            const address = property.location?.address?.toLowerCase() || '';
+            const city = property.location?.city?.toLowerCase() || '';
+            
+            return title.includes(query) || 
+                   address.includes(query) || 
+                   city.includes(query);
+          });
         }
 
         // Filter by minimum bedrooms
