@@ -41,14 +41,15 @@ export const usePropertyStore = create<PropertyStore>()(
       },
 
       fetchPropertyById: async (id: string) => {
-        set({ loading: true, error: null });
+        set({ loading: true, error: null, selectedProperty: null });
         try {
           const property = await fetchPropertyById(id);
           set({ selectedProperty: property, loading: false });
         } catch (error) {
           set({ 
-            error: error instanceof Error ? error.message : 'An unknown error occurred',
-            loading: false 
+            error: error instanceof Error ? error.message : 'Property not found',
+            loading: false,
+            selectedProperty: null
           });
         }
       },

@@ -1,0 +1,217 @@
+/* Header Component - Estatify Design */
+.header {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #2563eb 100%);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+/* Brand Section */
+.header__brand {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+.header__brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.025em;
+}
+
+/* Navigation */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header__nav-item {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.925rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.header__nav-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header__nav-item--active {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+}
+
+/* Removed the dot indicator for active nav items */
+
+/* User Actions */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__notifications {
+  position: relative;
+}
+
+.header__notification-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.header__notification-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header__notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #4f46e5;
+}
+
+.header__user-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header__user-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header__user-avatar {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.header__user-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header__nav {
+    gap: 1.5rem;
+  }
+  
+  .header__nav-item {
+    font-size: 0.875rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__content {
+    height: 60px;
+  }
+  
+  .header__nav {
+    display: none;
+  }
+  
+  .header__brand-text {
+    font-size: 1.25rem;
+  }
+  
+  .header__actions {
+    gap: 0.75rem;
+  }
+  
+  .header__user-text {
+    display: none;
+  }
+  
+  .header__user-btn {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__container {
+    padding: 0 0.75rem;
+  }
+  
+  .header__content {
+    height: 56px;
+  }
+  
+  .header__brand-text {
+    font-size: 1.125rem;
+  }
+  
+  .header__notification-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .header__user-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+}

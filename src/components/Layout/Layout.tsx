@@ -1,4 +1,5 @@
 import Header from './Header';
+import './Layout.css';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,9 +8,9 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, title }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="layout">
       <Header title={title} />
-      <main className="container py-6">
+      <main className="layout__main">
         {children}
       </main>
     </div>

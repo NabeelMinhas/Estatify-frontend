@@ -1,24 +1,27 @@
+/* Property Card - Estatify Design */
 .property-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid #f1f5f9;
 }
 
 /* Hover effects - attention to detail requirement #3 */
 .property-card:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #e2e8f0;
 }
 
 .property-card:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #4f46e5;
   outline-offset: 2px;
 }
 
@@ -29,7 +32,7 @@
 /* Image container */
 .property-card__image-container {
   position: relative;
-  height: 200px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -44,18 +47,60 @@
   transform: scale(1.05);
 }
 
-.property-card__price-badge {
+/* Status Badge */
+.property-card__status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.property-card__status--new {
+  background: rgba(34, 197, 94, 0.9);
+  color: white;
+}
+
+.property-card__status--featured {
+  background: rgba(59, 130, 246, 0.9);
+  color: white;
+}
+
+.property-card__status--reduced {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+}
+
+/* Favorite Button */
+.property-card__favorite {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(59, 130, 246, 0.95);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.875rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   backdrop-filter: blur(4px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.property-card__favorite:hover {
+  background: white;
+  color: #ef4444;
+  transform: scale(1.1);
 }
 
 /* Content area */
@@ -64,45 +109,35 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+.property-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 12px;
 }
 
 .property-card__title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #1e293b;
   margin: 0;
   line-height: 1.4;
+  flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 2.8rem;
 }
 
-/* Details section */
-.property-card__details {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.property-card__bedrooms,
-.property-card__bathrooms {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #6b7280;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.property-card__icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+.property-card__price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4f46e5;
+  white-space: nowrap;
 }
 
 /* Location section */
@@ -110,9 +145,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #6b7280;
+  color: #64748b;
   font-size: 0.875rem;
-  margin-top: auto;
+}
+
+.property-card__location svg {
+  flex-shrink: 0;
 }
 
 .property-card__location-text {
@@ -123,37 +161,100 @@
   text-overflow: ellipsis;
 }
 
+/* Details section */
+.property-card__details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.property-card__detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.property-card__detail-item svg {
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+/* Footer section */
+.property-card__footer {
+  margin-top: auto;
+}
+
+.property-card__details-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.property-card__details-btn:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.property-card__details-btn:active {
+  transform: translateY(0);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .property-card__content {
     padding: 16px;
+    gap: 12px;
   }
   
   .property-card__title {
     font-size: 1rem;
   }
   
-  .property-card__details {
-    gap: 12px;
+  .property-card__price {
+    font-size: 1.125rem;
   }
   
-  .property-card__price-badge {
-    font-size: 0.8rem;
-    padding: 4px 8px;
+  .property-card__details {
+    gap: 12px;
+    flex-wrap: wrap;
   }
   
   .property-card__image-container {
-    height: 180px;
+    height: 200px;
+  }
+  
+  .property-card__favorite {
+    width: 36px;
+    height: 36px;
   }
 }
 
 @media (max-width: 480px) {
   .property-card__image-container {
-    height: 160px;
+    height: 180px;
   }
   
   .property-card__content {
     padding: 12px;
+    gap: 10px;
+  }
+  
+  .property-card__header {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
   }
   
@@ -161,6 +262,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+  
+  .property-card__details-btn {
+    padding: 10px 14px;
+    font-size: 0.8rem;
   }
 }
 
@@ -182,7 +288,9 @@
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   .property-card,
-  .property-card__image {
+  .property-card__image,
+  .property-card__favorite,
+  .property-card__details-btn {
     transition: none;
   }
   
@@ -193,6 +301,14 @@
   .property-card:hover .property-card__image {
     transform: none;
   }
+  
+  .property-card__favorite:hover {
+    transform: none;
+  }
+  
+  .property-card__details-btn:hover {
+    transform: none;
+  }
 }
 
 /* High contrast mode support */
@@ -201,8 +317,8 @@
     border: 2px solid #000;
   }
   
-  .property-card__price-badge {
-    background: #000;
-    color: #fff;
+  .property-card__status {
+    background: #000 !important;
+    color: #fff !important;
   }
 }

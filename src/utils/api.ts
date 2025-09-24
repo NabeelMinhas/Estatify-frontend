@@ -20,12 +20,21 @@ export const fetchProperties = async (): Promise<Property[]> => {
   }
 };
 
-export const fetchPropertyById = async (id: string): Promise<Property | null> => {
+export const fetchPropertyById = async (id: string): Promise<Property> => {
   try {
     const properties = await fetchProperties();
-    return properties.find(property => property.id === id) || null;
+    const property = properties.find(property => property.id === id);
+    
+    if (!property) {
+      throw new Error(`Property with ID ${id} not found`);
+    }
+    
+    return property;
   } catch (error) {
     console.error('Error fetching property by ID:', error);
+    if (error instanceof Error && error.message.includes('not found')) {
+      throw error;
+    }
     throw new Error('Failed to fetch property details. Please try again later.');
   }
 };
