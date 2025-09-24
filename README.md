@@ -42,6 +42,11 @@ The application will open at `http://localhost:3000`
 npm run build
 ```
 
+## 📊 Development Insights
+
+### **⏱️ Project Timeline**
+**Total Development Time**: Approximately 3-4 hours of focused development
+
 
 ## ✨ Features
 
